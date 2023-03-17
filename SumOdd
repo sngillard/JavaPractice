@@ -1,0 +1,26 @@
+public class SumOddRange {
+ public static boolean isOdd(int number) { 
+     if(number <= 0) {
+         return false;
+     } else if(number % 2 != 0) {        //if odd return true 
+         return true;
+     } else {
+         return false; //return false if even. 
+     }
+ }
+ 
+ public static int sumOdd(int start, int end) { 
+     int sumAllOddNumbersInRange = 0; 
+     
+     if(start > 0 && end > 0 && end >= start) {
+         for(int i = start; i <= end; i++) {
+             if(isOdd(i)) {
+                 sumAllOddNumbersInRange = sumAllOddNumbersInRange + i;
+             }
+         }
+     return sumAllOddNumbersInRange;
+ } else {
+     return -1;
+ }
+ }
+}
