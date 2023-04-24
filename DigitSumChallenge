@@ -1,0 +1,31 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("The sum of the digits in number 1234 is " + sumDigits(1234));
+        System.out.println("The sum of the digits in number -125 is " + sumDigits(-125));
+        System.out.println("The sum of the digits in number 4 is " + sumDigits(4));
+        System.out.println("The sum of the digits in number 32123 is " + sumDigits(32123));
+    }
+
+    private static int sumDigits(int number) {
+
+        if (number < 0) {
+            return -1;
+        }
+
+        int sum = 0;
+
+        while (number > 9) {
+            sum += (number % 10);  //gives us the most right digit
+            number = number / 10;  //drop most right digit
+        }
+
+        sum += number;
+
+        return sum;
+    }
+}
+
+//remainder of a number divided by 10 gives us the most right digit ex: 1234 / 10 = 4
+//we can drop the most right digit and just have the other 3 digits by diving by 10 ex: 1234 / 10 = 123
