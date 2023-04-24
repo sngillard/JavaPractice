@@ -1,0 +1,26 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int counter = 0;
+        int sum = 0;
+
+        for (int i = 1; i <= 1000; i++) {
+            if ((i % 3 == 0) && (i % 5 == 0)) {
+                counter++;
+                sum += i;
+                System.out.println(i + " is divisible by 3 and 5");
+            }
+
+            if (counter == 5) {
+                break;
+            }
+        }
+        System.out.println("The sum of these numbers is " + sum);
+    }
+}
+/* create for loop using range of numbers 1 to 1000
+sum all numbers that can be divided by both 3 and 5
+print out all numbers that have met above conditions (1-1000, div by 3 and 5)
+break out of loop once found 5 numbers that met the conditions
+after breaking out of loop, print sum of the numbers that met the conditons
+ */
