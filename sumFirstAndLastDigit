@@ -26,6 +26,8 @@ public class FirstLastDigitSum {
         
         if(originalNumber > 0) {      //add first and last for positive numbers
             int sumFirstAndLast = firstDigit + lastDigit;
-        } return -1;                  //return -1 for negative numbers
+        }                   
+    }
+        return -1;                    //return -1 for negative numbers
     }
 }
