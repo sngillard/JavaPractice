@@ -1,0 +1,29 @@
+public class LastDigitChecker {
+   public static boolean hasSameLastDigit(int firstNumber, int secondNumber, int thirdNumber) {
+       System.out.println(hasSameLastDigit(41, 22, 71));
+       System.out.println(hasSameLastDigit(23, 32, 42));
+       System.out.println(hasSameLastDigit(9, 99, 999));
+       
+       if((firstNumber > 10 && firstNumber < 1000) && (secondNumber > 10 && secondNumber < 1000) && (thirdNumber > 10 && thirdNumber < 1000)) {
+           int lastDigitFirstNumber = firstNumber % 10;    //41 % 10 = 1
+           int lastDigitSecondNumber = secondNumber % 10; //22 % 10 = 2
+           int lastDigitThirdNumber = thirdNumber % 10;   //71 % 10 = 1
+           
+         if ((lastDigitFirstNumber == lastDigitSecondNumber) || (lastDigitFirstNumber == lastDigitThirdNumber) || (lastDigitSecondNumber == lastDigitFirstNumber)) {
+             return true;
+         } else {
+             return false;    //false if numbers in range but have same last digit
+         }
+       } return false;        //also false if numbers aren't in the range 10-1000
+   } 
+   
+   public static boolean isValid(int checkNumber) {
+       System.out.println(isValid(10));
+       System.out.println(isValid(468));
+       System.out.println(isValid(1051));
+       
+       if(checkNumber > 10 && checkNumber < 1000) {
+           return true;
+       } return false;
+   }
+}
