@@ -1,0 +1,31 @@
+public class FirstLastDigitSum {
+    
+    public static int sumFirstAndLastDigit(int number) {
+        System.out.println(sumFirstAndLastDigit(252));
+        System.out.println(sumFirstAndLastDigit(257));
+        System.out.println(sumFirstAndLastDigit(0));
+        System.out.println(sumFirstAndLastDigit(5));
+        System.out.println(sumFirstAndLastDigit(-10));
+        
+        if(number >= 0) {
+        int originalNumber = number;
+        int lastDigit = number % 10;   //252 % 10 = 2
+        int firstDigit = 0;            //loop to find first digit 
+        
+        if(number < 10) {              //for 5 we'd add 5 + 5
+            firstDigit = lastDigit;   
+        } else {                      //loop for positive numbers greater than 9
+            while (number > 1) {
+                number = number / 10; //252/10= 25, 25/10=2, 2/10=0 so BREAK
+                if(number == 0) {
+                    break;
+                }
+                firstDigit = number;  //first digit is 2 in 252
+            }
+        }
+        
+        if(originalNumber > 0) {      //add first and last for positive numbers
+            int sumFirstAndLast = firstDigit + lastDigit;
+        } return -1;                  //return -1 for negative numbers
+    }
+}
