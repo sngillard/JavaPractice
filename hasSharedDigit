@@ -1,0 +1,22 @@
+public class SharedDigit {
+    
+    public static boolean hasSharedDigit(int firstNumber, int secondNumber) {
+        System.out.println(hasSharedDigit(12, 23));
+        System.out.println(hasSharedDigit(9, 99));
+        System.out.println(hasSharedDigit(15, 55));
+
+        if((firstNumber < 10 && firstNumber > 99) || (secondNumber < 10 && secondNumber > 99)) {
+            return false;
+        } 
+        
+        int onesPlaceFirstNumber = firstNumber % 10;   //12 % 10 = 2
+        int onesPlaceSecondNumber = secondNumber % 10; //23 % 10 = 3
+        int tensPlaceFirstNumber = firstNumber / 10;   //12 / 10 = 1.2, rounded to 1 bc int
+        int tensPlaceSecondNumber = secondNumber / 10; //23 / 10 = 2.3, so 2 rounded bc int
+        
+        if((onesPlaceFirstNumber == onesPlaceSecondNumber) || (onesPlaceFirstNumber == tensPlaceSecondNumber) || (tensPlaceFirstNumber == onesPlaceSecondNumber) || (tensPlaceFirstNumber == tensPlaceSecondNumber));
+        {
+            return true;
+        }
+    }
+}
