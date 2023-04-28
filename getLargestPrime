@@ -1,0 +1,17 @@
+public class LargestPrime {
+    public static int getLargestPrime(int number) {
+        if(number <= 1) {
+            return -1;    //0 and 1 are not considered prime and we want to return -1 for negative numbers too
+        } else {
+            int largestPrime = 2;  //first prime is 2
+            while(largestPrime < number) {   //if number is 45, 2 is less, 2nd loop: 3 < 45
+                if(number % largestPrime != 0) { //45 % 2 is 5, so NOT 0, 2nd loop: 45 % 3 is 0
+                    largestPrime++;              //so we add one to largestPrime (3 now)
+                } else {
+                    number = number / largestPrime;   //45 / 3 = 15 (largest prime for 45 is 15)
+                }
+            }
+            return number;
+        }
+    }
+}
