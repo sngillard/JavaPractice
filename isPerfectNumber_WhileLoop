@@ -1,0 +1,30 @@
+public class PerfectNumber {
+    public static boolean isPerfectNumber(int number) {
+
+        isPerfectNumber(6);
+        isPerfectNumber(28);
+        isPerfectNumber(5);
+        isPerfectNumber(-1);
+
+        if (number < 1) {
+            return false;
+                } else {
+            int divisorSum = 0;
+            int divisor = 0;
+            
+            while (number > 0) {
+                if (number % divisor == 0) {
+                    divisorSum += divisor;
+                }
+                if (divisorSum == number) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+}
+
+//perfect number = sum of proper divisors equals the number
+//(proper divisors leave no remainder and don't include the number itself)
+//proper divisors for 6 are 1, 2, 3.... 1 + 2 +3 = 6....so 6 is a perfect number
