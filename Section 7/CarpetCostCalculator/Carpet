@@ -1,0 +1,17 @@
+public class Carpet {
+    //instance variables 
+    private double cost;
+    
+    //constructor
+    public Carpet(double cost) {
+        if(cost < 0) {
+            cost = 0;
+        }
+        this.cost = cost;
+    }
+    
+    //instance methods
+    public double getCost() {
+        return cost;
+    }
+}
