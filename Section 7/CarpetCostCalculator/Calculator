@@ -1,0 +1,16 @@
+public class Calculator {
+    //instance variables
+    private Floor floor;
+    private Carpet carpet;
+
+    //constructors
+    public Calculator(Floor floor, Carpet carpet) {
+        this.floor = floor;
+        this.carpet = carpet;
+    }
+
+    //instance methods
+    public double getTotalCost() {
+        return carpet.getCost()*floor.getArea();
+    }
+}
