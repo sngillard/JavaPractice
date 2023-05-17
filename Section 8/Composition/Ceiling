@@ -1,0 +1,21 @@
+public class Ceiling {
+    
+    //member variables
+    private int height;
+    private int paintedColor;
+    
+    //constrcutor method
+    public Ceiling(int height, int paintedColor) {
+        this.height = height;
+        this.paintedColor = paintedColor;
+    }
+    
+    //additional methods
+    public int getHeight() {
+        return height;
+    }
+    
+    public int getPaintedColor() {
+        return paintedColor;
+    }
+}
