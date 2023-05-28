@@ -22,3 +22,4 @@ public class EvenDigitSum {
 //25 % 10 = 5, 5 % 2 = 5 which isn't 0, so we go down and do 25 / 10 = 2.5, so we loop through with 2. 
 //2 % 10 = 2, 2 % 2 = 0, so we have 2 for evenDigitSum now and we add 2 because 2 % 2 = 2. 2 + 2 = 4 so evenDigitSum is now 4.
 //now number / 10 is 2 / 10 which is 0.2 so 0, so now we return the evenDigitSumer which is 4. 
+ 
