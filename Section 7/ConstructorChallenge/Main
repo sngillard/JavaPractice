@@ -1,0 +1,44 @@
+public class Main {
+    public static void main(String[] args) {
+        //BankAccount sarahsAccount = new BankAccount("1234", 150000.00, "Sa Rah,", "Sarah@gmail.com",
+                //"555-555-5555");
+
+        Customer customer = new Customer("Tim", 1000, "tim@gmail.com");
+        System.out.println(customer.getName());
+        System.out.println(customer.getCreditLimit());
+        System.out.println(customer.getEmailAddress());
+
+        Customer secondCustomer = new Customer();
+        System.out.println(secondCustomer.getName());
+        System.out.println(secondCustomer.getCreditLimit());
+        System.out.println(secondCustomer.getEmailAddress());
+
+        Customer thirdCustomer = new Customer("Joe", "joe@gmail.com");
+        System.out.println(thirdCustomer.getName());
+        System.out.println(thirdCustomer.getCreditLimit());
+        System.out.println(thirdCustomer.getEmailAddress());
+
+        //BankAccount sarahsAccount = new BankAccount();
+
+       // System.out.println(sarahsAccount.getAccountNumber());
+        //System.out.println(sarahsAccount.getAccountBalance());
+
+//        sarahsAccount.setAccountNumber("1234");
+//        sarahsAccount.setAccountBalance(150000.00);
+//        sarahsAccount.setCustomerName("Sa Rah");
+//        sarahsAccount.setEmail("Sarah@gmail.com");
+//        sarahsAccount.setPhoneNumber("555-555-5555");
+//
+//        sarahsAccount.withdrawFunds(100.00);
+//        sarahsAccount.depositFunds(500.00);
+//
+//        sarahsAccount.depositFunds(100000000.00);
+//        sarahsAccount.withdrawFunds(10000000.00);
+//        sarahsAccount.withdrawFunds(1000000000.00);
+
+//        BankAccount timsAccount = new BankAccount("Tim", "tim@gmail.com", "12345");
+//        System.out.println("AccountNo: " + timsAccount.getAccountNumber() + "; name " + timsAccount.getCustomerName());
+
+
+    }
+}
