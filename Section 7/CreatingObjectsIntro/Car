@@ -1,0 +1,72 @@
+public class Car {
+
+    //fields
+    private String make = "Tesla";
+    private String model = "Model X";
+    private String color= "Gray";
+    private int doors = 2;
+    private boolean convertible = true;
+
+    //getter methods (get data) for make, model, color, door, convertible
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public boolean isConvertible() {
+        return convertible;
+    }
+
+    //setter method for make, which we created with a rule that we support only 3 manufacturers.
+    //you can make rules for what's valid and unvalid, you can't assign a make we haven't defined
+    //as valid in the setter method for make
+    public void setMake(String make) {
+        if (make == null) make = "Unknown"; //if argument being passed for make is null, we set to unknown
+        String lowercaseMake = make.toLowerCase(); //make is an object of type String, we return a new String that's all lowercase
+        switch (lowercaseMake) {
+            case "holden", "porsche", "tesla" -> this.make = make; //we use a switch statement on this variable to see if it's one of the 3 makes we support
+            //if it matches one we support(holden, porsche, tesla) we set the make field to the argument passed
+            default -> { //if it's not one of the three makes we support, we set make to default which is Unsupported
+                this.make = "Unsupported ";
+            }
+        }
+    }
+
+    //generated setter methods (set data)
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public void setConvertible(boolean convertible) {
+        this.convertible = convertible;
+    }
+
+    //methods
+    public void describeCar() {
+        System.out.println(doors + "-Door " +
+                color + " " +
+                make + " " +
+                model + " " +
+                (convertible ? "Convertible" : ""));
+    }
+}
