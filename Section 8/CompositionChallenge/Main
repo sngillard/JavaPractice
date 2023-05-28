@@ -1,0 +1,21 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        //create new instance of a smart kitchen
+        SmartKitchen kitchen = new SmartKitchen();
+
+//        //get methods
+//        kitchen.getDishWasher().setHasWorkToDo(true);
+//        kitchen.getIceBox().setHasWorkToDo(true);
+//        kitchen.getBrewMaster().setHasWorkToDo(true);
+//
+//        kitchen.getDishWasher().doDishes();
+//        kitchen.getIceBox().orderFood();
+//        kitchen.getBrewMaster().brewCoffee();
+
+        kitchen.setKitchenState(true, false, true);
+        kitchen.doKitchenWork();
+        //this would print "brewing coffee washing dishes bc we set those two to true"
+    }
+}
