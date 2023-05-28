@@ -1,0 +1,73 @@
+public class Dog extends Animal {
+
+    //Dog specific fields (it's inheriting the ones in Animal class)
+    private String earShape;
+    private String tailShape;
+
+    //implicit constructor
+    public Dog() {
+        super("Mutt", "Big", 50);
+        //super() calls the constructor on the parent class/calls the default
+        //constructor on the super class Animal
+    }
+
+    public Dog(String type, double weight) {
+        this(type, weight, "Perky", "Curled");
+    }
+
+    public Dog(String type, double weight, String earShape, String tailShape) {
+        super(type, weight < 15 ? "small" : (weight < 35 ? "medium" : "large"),
+                weight);
+        this.earShape = earShape;
+        this.tailShape = tailShape;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "earShape='" + earShape + '\'' +
+                ", tailShape='" + tailShape + '\'' +
+                "} " + super.toString();
+    }
+
+    public void makeNoise() { //red arrow on left tells us this method is overriding the method from the parent class
+        //bc Animal has a makeNoise method too
+        if(type == "Wolf") {
+            System.out.println("Ow Wooooo! ");
+        }
+        bark();
+        System.out.println();
+
+    }
+
+    @Override
+    public void move(String speed) {
+        super.move(speed);  //we are overriding the move method in the Animal super class
+       // System.out.println("Dogs walk, run and wag their tail");
+        if(speed == "slow") {
+            walk();
+            wagTail();
+        } else {
+            run();
+            bark();
+        }
+        System.out.println();
+    }
+
+    private void bark() {
+        //this method is private. not all methods need to be exposed/public, especially if you only intend to call them internally from the current class
+        System.out.println("Woof! ");
+    }
+
+    private void run() {
+        System.out.println("Dog Running ");
+    }
+
+    private void walk() {
+        System.out.println("Dog Walking ");
+    }
+
+    private void wagTail() {
+        System.out.println("Tail Wagging ");
+    }
+}
