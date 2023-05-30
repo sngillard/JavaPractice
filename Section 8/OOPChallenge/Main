@@ -1,0 +1,34 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+//        Item coke = new Item("drink", "lemonade", 1.50);
+//        coke.printItem();
+//        coke.setSize("LARGE");
+//        coke.printItem();
+//
+//        Item avocado = new Item("Topping", "avocado", 1.0);
+//        avocado.printItem();
+
+//        Burger burger = new Burger("regular", 4.00);
+//        burger.addToppings("HUMMUS", "PICKLE", "AVOCADO");
+//        burger.printItem();
+
+//        MealOrder regularMeal = new MealOrder();
+//        regularMeal.addBurgerToppings("AVOCADO", "FALAFEL", "HUMMUS");
+//        regularMeal.setDrinkSize("SMALL");
+//        regularMeal.printItemizedList();
+//
+//        MealOrder secondMeal = new MealOrder("spicy black bean",
+//                "lavender lemonade", "truffle fries");
+//        secondMeal.addBurgerToppings("HUMMUS", "PICKLE", "NONE");
+//        secondMeal.setDrinkSize("LARGE");
+//        secondMeal.printItemizedList();
+
+        MealOrder deluxeMeal = new MealOrder("deluxe", "water", "truffle fries");
+        deluxeMeal.addBurgerToppings("AVOCADO", "HUMMUS", "PICKLE", "FALAFEL", "PORTOBELLO");
+        deluxeMeal.setDrinkSize("MEDIUM");
+        deluxeMeal.printItemizedList();
+
+    }
+}
