@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class SortedArray {
+    
+    //getIntegers method has one parameter which is the size of the array and returns an array of entered integers from the keyboard.
+    public static int[] getIntegers(int inputInt) {
+        Scanner scanner = new Scanner(System.in);
+        int[] createArray = new int[inputInt];
+        for(int i = 0; i < inputInt; i++) {
+            int scan = scanner.nextInt();
+            createArray[i] = scan;
+        }
+        return createArray;
+    }
+    
+    //printArray method accepts an array and prints out the contents of the array with formatting
+    public static void printArray(int[] createArray) {
+        for (int i = 0; i < createArray.length; i++) {
+            System.out.println("Element " + i + " contents " + createArray[i]);
+        }
+    }
+        
+    public static int[] sortIntegers(int[] createArray) {
+        int temp;
+        for(int i = 0; i < createArray.length; i++) {
+            for (int j = 0; j < createArray.length - 1; j++) {
+                if (createArray[j] < createArray[j + 1]) {
+                    temp = createArray[j];
+                    createArray[j] = createArray[j + 1];
+                    createArray[j + 1] = temp;
+                }
+            }
+        }
+        return createArray;
+    }
+}
