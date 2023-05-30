@@ -1,0 +1,46 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] unsortedArray = getRandomArray(5); //generated with method below
+        System.out.println(Arrays.toString(unsortedArray));
+
+        int[] sortedArray = sortIntegers(new int[] {7, 30, 35});
+        System.out.println(Arrays.toString(sortedArray));
+    }
+
+    private static int[] getRandomArray(int len) {
+        //this method gets the randomly generated numbers
+        Random random = new Random();
+        int[] randomArray = new int[len];
+        for (int i = 0; i < len; i++) {
+            randomArray[i] = random.nextInt(1000); //random numbers between 0 and 999
+        }
+        return randomArray;
+    }
+
+    private static int[] sortIntegers(int[] array) {
+
+        System.out.println(Arrays.toString(array)); //start with numbers in the reverse order of what we want (we want greatest to least)
+        int[] sortedArray = Arrays.copyOf(array, array.length); //copy the array
+        boolean flag = true; //set flag to true
+        int temp; //temporary variable
+        while (flag) { //set to false bc we'll have a nested while loop
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++) { //stop comparing at last element
+                if (sortedArray[i] < sortedArray[i + 1]) { //if first element is less than second element, we want to swap for reverse order
+                    temp = sortedArray[i]; //we use a temp variable to move the current element's value into a temp variable
+                    sortedArray[i] = sortedArray[i + 1]; //we then set the current element to the value we want swapped in
+                    sortedArray[i + 1] = temp; //then set the next element's value to the one in the temp variable to store it
+                    flag = true;
+                }
+            }
+        }
+        return sortedArray;
+    }
+}
