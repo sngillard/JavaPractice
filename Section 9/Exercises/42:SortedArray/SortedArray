@@ -20,6 +20,7 @@ public class SortedArray {
         }
     }
         
+    //we want our array in descending order    
     public static int[] sortIntegers(int[] createArray) {
         int temp;
         for(int i = 0; i < createArray.length; i++) {
