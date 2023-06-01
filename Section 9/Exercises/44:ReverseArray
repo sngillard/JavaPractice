@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class ReverseArray {
-   /*Write a method called reverse() with an int array as a parameter. The method should not return any value. In other words, the method is allowed to modify the array parameter.*/
+   /*Write a method called reverse() with an int array as a parameter. The method should not return any value.*/
     private static void reverse(int[] array) {
         
         String Array = Arrays.toString(array);
