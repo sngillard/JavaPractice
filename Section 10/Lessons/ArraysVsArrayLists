@@ -1,0 +1,32 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+public class MoreLists {
+
+    public static void main(String[] args) {
+
+        String[] originalArray = new String[] {"First", "Second", "Third"};
+        var originalList = Arrays.asList(originalArray);
+
+        //print both the list and then the original array
+        originalList.set(0, "one");
+        System.out.println("list: " + originalList);
+        System.out.println("array: " + Arrays.toString(originalArray));
+
+        //sort the list and print out the original array
+        //uppercase letters will be first in order for Strings
+        originalList.sort(Comparator.naturalOrder());
+        System.out.println("array: " + Arrays.toString(originalArray));
+
+        //will result in an error
+        //originalList.add("fourth");
+
+        //prints list
+        List<String> newList = Arrays.asList("Sunday", "Monday", "Tuesday");
+        System.out.println(newList);
+        
+    }
+}
