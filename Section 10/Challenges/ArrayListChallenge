@@ -1,0 +1,72 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class Main {
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        boolean flag = true;  //create a boolean flag set to true. We set the flag to false in the loop if the use enters something other than 1 or 2
+        ArrayList<String> groceries = new ArrayList<>(); //grocery list will be a list of String
+        while (flag) {  //set up while loop using the flag as the condition
+            printActions(); //first execute the printActions method
+            switch (Integer.parseInt(scanner.nextLine())) { //now we have a switch statement
+                case 1 -> addItems(groceries); //if a user enters 1 as a menu item, we'll prompt them to add items to the grocery list (call the addItems method)
+                case 2 -> removeItems(groceries);
+                default -> flag = false;
+            }
+            groceries.sort(Comparator.naturalOrder()); //after each selection action item, we'll sort the list
+            System.out.println(groceries); //print grocery list out
+        }
+    }
+
+    private static void addItems(ArrayList<String> groceries) {
+
+        System.out.println("Add item(s) [separate items by comma]:"); //prompt user to enter a list of items they want at the store
+        String[] items = scanner.nextLine().split(","); //read the data and split the string we get from the user by the comma and return a String array
+        //add a call to this method in the main method
+
+        //replace the code that added all the items with this enhanced for loop to loop through the items
+        //check if the trimmed item is in the list. not found, lets add it.
+        for (String i : items) {
+            String trimmed = i.trim(); //trim the array element, getting rid of leading and trailing white space
+            if (groceries.indexOf(trimmed) < 0) { //check if that element is already in the list
+                groceries.add(trimmed); //if there's no match we get a -1 back from the method and add it
+            }
+        }
+    }
+
+    private static void removeItems(ArrayList<String> groceries) {
+
+        System.out.println("Remove item(s) [separate items by comma]:");
+        String[] items = scanner.nextLine().split(",");
+
+        for (String i: items) {
+            String trimmed = i.trim();
+            groceries.remove(trimmed);
+        }
+    }
+
+    private static void printActions() {
+
+        String textBlock = """
+                Available actions:
+                
+                0 - to shutdown
+                
+                1 - to add item(s) to list (comma delimited list)
+                
+                2 - to remove any items (comma delimited list)
+                
+                Enter a number for which action you want to do:""";
+        System.out.println(textBlock + " ");
+        //a text block is just a special way to format a multi-line string in a "what you see if what you get manner"
+        //we start a text block with three double quotes that have to be on a separate line from the rest of the block,
+        //after that we type in what we want the user to see and then we end the text block with three double quotes
+
+    }
+}
