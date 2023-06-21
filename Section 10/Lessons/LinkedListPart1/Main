@@ -1,0 +1,64 @@
+package com.company;
+
+import java.util.LinkedList;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+//        LinkedList<String> placesToVisit = new LinkedList<>();
+        var placesToVisit = new LinkedList<String>();
+
+        placesToVisit.add("Boston");
+        placesToVisit.add(0, "Worcester");
+        System.out.println(placesToVisit);
+
+        addMoreElement(placesToVisit);
+        System.out.println(placesToVisit);
+
+        removeElements(placesToVisit);
+        System.out.println(placesToVisit);
+    }
+
+    private static void addMoreElement(LinkedList<String> list) {
+
+        list.addFirst("Plymouth");
+        list.addLast("Cambridge");
+        //Queue methods
+        list.offer("Amherst");
+        list.offerFirst("Springfield");
+        list.offerLast("New Bedford");
+        //Stack Methods
+        list.push("Bourne");
+    }
+
+    private static void removeElements(LinkedList<String> list) {
+        list.remove(3);
+        list.remove("New Bedford");
+
+        System.out.println(list);
+        String s1 = list.remove(); // removes first element
+        System.out.println(s1 + " was removed");
+
+        String s2 = list.removeFirst(); // removes first element
+        System.out.println(s2 + " was removed");
+
+        String s3 = list.removeLast(); // removes last element
+        System.out.println(s3 + " was removed");
+        //Queue poll methods
+        String p1 = list.poll(); //removes first element
+        System.out.println(p1 + " was removed");
+        String p2 = list.pollFirst(); //removes first element
+        System.out.println(p2 + " was removed");
+        String p3 = list.pollLast(); //removes last element
+        System.out.println(p3 + " was removed");
+
+        list.push("Boston");
+        list.push("Plymouth");
+        list.push("Salem");
+        System.out.println(list);
+
+        String p4 = list.pop(); //removes first element
+        System.out.println(p4 + " was removed");
+    }
+}
