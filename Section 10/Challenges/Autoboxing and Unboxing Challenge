@@ -1,0 +1,99 @@
+package com.company;
+
+import java.util.ArrayList;
+
+//Customer record
+record Customer(String name, ArrayList<Double> transactions) {
+
+    public Customer(String name, double initialDeposit) {
+        this(name.toUpperCase(),
+                new ArrayList<Double>(500));
+        transactions.add(initialDeposit);
+    }
+}
+
+//Main class
+public class Main {
+
+    public static void main(String[] args) {
+
+        Customer bob = new Customer("Bob S", 1000.0);
+        System.out.println(bob);
+
+        Bank bank = new Bank("Chase"); //create a new instance of a bank
+        bank.addNewCustomer("Jane A", 500.0); //add a new customer, Jane, with an initial deposit of $500
+        System.out.println(bank); //print out the information in the bank
+
+        bank.addTransaction("Jane A", -10.25);
+        bank.addTransaction("jane A", -75.01);
+        bank.printStatement("Jane a");
+
+        bank.addNewCustomer("bob s", 25);
+        bank.addTransaction("Bob S", 100);
+        bank.printStatement("Bob S");
+
+    }
+}
+
+//Bank class
+class Bank {
+
+    private String name;
+    private ArrayList<Customer> customers = new ArrayList<>(5000);
+
+    public Bank(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    private Customer getCustomer(String customerName) {
+
+        for (var customer : customers) { //enhanced for loop looping through the customer list
+            if (customer.name().equalsIgnoreCase(customerName)) { //compare customer name with name passed as method's arguments, ignoring the case
+                return customer; //if we find a match, return that match, quitting out of the loop and method.
+            }
+        }
+        System.out.printf("Customer (%s) wasn't found %n", customerName);
+
+        return null; //If no match, return null for this method, which means no match.
+    }
+
+    public void addNewCustomer(String customerName, double initialDeposit) { //take a customer name and an initial deposit amount and create a new Customer record with these values
+        if (getCustomer(customerName) == null) {  //call the getCustomer method and if it returns nulls, we know we need to add a new customer record then add that to the bank's customer list
+            Customer customer = new Customer(customerName, initialDeposit);
+            customers.add(customer);
+            System.out.println("New Customer added: " + customer); //we print out a statement that we've added a new customer
+        }
+    }
+
+    public void addTransaction(String name, double transactionAmount) {
+        //addTransaction method calls to get customer with the name of the customer and check if it exists, adds transaction if it does
+        Customer customer = getCustomer(name);
+        if (customer != null) {
+            customer.transactions().add(transactionAmount);
+        }
+    }
+
+    public void printStatement(String customerName) {
+
+        Customer customer = getCustomer(customerName); //tries to locate customer record by customerName, calling the getCustomer method to do that
+        if (customer == null) { //if null is returned, the customer was not found, if a customer is found we want to print out the customer's name and transactions in a formatted way
+            return;
+        }
+
+        System.out.println("-".repeat(30)); //print a line 30 times
+        System.out.println("Customer Name: " + customer.name()); //print customer's name and a heading
+        System.out.println("Transactions:");
+        for (double d : customer.transactions()) {  //unboxing... use enhanced for-loop for customers
+            System.out.printf("$%10.2f (%s)%n", d, d < 0 ? "debit" : "credit"); //print the amount and whether it's a debit or credit
+            //%10.2f prints a double value with a width of 10 and a precision of 2 decimals
+            //print whether it was debit or credit in parenthesis.... use ternary operator to check if the amount is less than zero to determine debit or credit
+        }
+    }
+}
