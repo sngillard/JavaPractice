@@ -6,7 +6,7 @@ compile:
     [javac] /eval/src/main/java/com/udemy/ucp/MyLinkedList.java:23: error: incompatible types: ListItem cannot be converted to int
     [javac]             int comparison = (currentItem.compareTo(newItem));
     [javac]                                                    ^
-    [javac] /eval/src/main/java/com/udemy/ucp/MyLinkedList.java:57: error: incompatible types: ListItem cannot be converted to int
+    [javac] /eval/src/main/java/com/udemy/ucp/MyLinkedList.java:56: error: incompatible types: ListItem cannot be converted to int
     [javac]             int comparison = currentItem.compareTo(item);
     [javac]                                                   ^
     [javac] /eval/src/main/java/com/udemy/ucp/Node.java:1: error: Node is not abstract and does not override abstract method compareTo(ListItem) in ListItem
