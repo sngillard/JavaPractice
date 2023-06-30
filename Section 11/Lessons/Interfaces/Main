@@ -23,7 +23,7 @@ public class Main {
 
         inFlight(flier);
         inFlight(new Jet());
-        Trackable truck = new Truck();
+        Trackable truck = new Track();
         truck.track();
 
         double kmsTraveled = 100;
