@@ -1,0 +1,8 @@
+public interface NodeList {
+    
+    //4 package-private and abstract methods
+    ListItem getRoot();
+    boolean addItem(ListItem newItem);
+    boolean removeItem(ListItem item);
+    void traverse(ListItem root);
+}
