@@ -1,6 +1,6 @@
 public class SearchTree implements NodeList {
     
-    private ListItem root;
+    private ListItem root = null;
     
     public SearchTree(ListItem root) {
         this.root = root;
@@ -86,17 +86,17 @@ public class SearchTree implements NodeList {
                 this.root = item.next();
             }
         } else {
-            ListItem currentItem = item.next();
+            ListItem current = item.next();
             ListItem mostLeftParent = item;
-            while (currentItem.previous() != null) {
-                mostLeftParent = currentItem;
-                currentItem = currentItem.previous();
+            while (current.previous() != null) {
+                mostLeftParent = current;
+                current = current.previous();
             }
-            item.setValue(currentItem.getValue());
+            item.setValue(current.getValue());
             if (mostLeftParent == item) {
-                item.setNext(currentItem.next());
+                item.setNext(current.next());
             } else {
-                mostLeftParent.setPrevious(currentItem.next());
+                mostLeftParent.setPrevious(current.next());
             }
         }
     }
