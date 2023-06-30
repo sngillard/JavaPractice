@@ -1,0 +1,30 @@
+Your code can't run against tests.
+There might be something wrong with syntax usage in your code. You can use error details to fix it.
+compile:
+    [mkdir] Created dir: /eval/build/main
+    [javac] Compiling 7 source files to /eval/build/main
+    [javac] /eval/src/main/java/com/udemy/ucp/MyLinkedList.java:23: error: incompatible types: ListItem cannot be converted to int
+    [javac]             int comparison = (currentItem.compareTo(newItem));
+    [javac]                                                    ^
+    [javac] /eval/src/main/java/com/udemy/ucp/MyLinkedList.java:57: error: incompatible types: ListItem cannot be converted to int
+    [javac]             int comparison = currentItem.compareTo(item);
+    [javac]                                                   ^
+    [javac] /eval/src/main/java/com/udemy/ucp/Node.java:1: error: Node is not abstract and does not override abstract method compareTo(ListItem) in ListItem
+    [javac] public class Node extends ListItem {
+    [javac]        ^
+    [javac] /eval/src/main/java/com/udemy/ucp/Node.java:32: error: compareTo(ListItem) in Node cannot override compareTo(ListItem) in ListItem
+    [javac]     int compareTo(ListItem item) {
+    [javac]         ^
+    [javac]   return type int is not compatible with ListItem
+    [javac] /eval/src/main/java/com/udemy/ucp/Node.java:31: error: method does not override or implement a method from a supertype
+    [javac]     @Override
+    [javac]     ^
+    [javac] /eval/src/main/java/com/udemy/ucp/SearchTree.java:23: error: incompatible types: ListItem cannot be converted to int
+    [javac]             int comparison = (currentItem.compareTo(newItem));
+    [javac]                                                    ^
+    [javac] /eval/src/main/java/com/udemy/ucp/SearchTree.java:56: error: incompatible types: ListItem cannot be converted to int
+    [javac]             int comparison = currentItem.compareTo(item);
+    [javac]                                                   ^
+    [javac] Note: /eval/src/main/java/com/udemy/ucp/EvaluationHelper.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 7 errors
