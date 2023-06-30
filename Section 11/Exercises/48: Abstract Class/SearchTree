@@ -8,7 +8,7 @@ public class SearchTree implements NodeList {
     
     @Override
     public ListItem getRoot() {
-        return this.root;
+        return this.root; 
     }
     
     @Override
