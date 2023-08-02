@@ -1,0 +1,83 @@
+package dev.lpa;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MapMain {
+
+    public static void main(String[] args) {
+
+        List<Contact> phones = ContactData.getData("phone"); //phone list
+        List<Contact> emails = ContactData.getData("email"); //email list
+
+        //create full list to print phone numbers and emails
+        List<Contact> fullList = new ArrayList<>(phones);
+        fullList.addAll(emails);
+        fullList.forEach(System.out::println);
+        System.out.println("-----------------------------");
+
+        //Create first map. Here the Map is reference type, key is the contact name so a string, value is a Contact record
+        Map<String, Contact> contacts = new HashMap<>();
+
+        //to add my Contacts, loop through the full list and use the put method on the hash map.
+        //the put method takes a key and a value and inserts an Entry into the map.
+        for (Contact contact : fullList) {
+            contacts.put(contact.getName(), contact);
+        }
+        //print the elements in the map using for each method on the map itself, on contacts, and pass it a lambda expression that requires two arguments (one for key and one for value). The expression will print the key and value.
+        contacts.forEach((k, v) -> System.out.println("key=" + k + ", value= " + v));
+
+        System.out.println("-----------------------------");
+        System.out.println(contacts.get("Charlie Brown"));
+
+        System.out.println(contacts.get("Chuck Brown"));
+
+        Contact defaultContact = new Contact("Chuck Brown");
+        System.out.println(contacts.getOrDefault("Chuck Brown", defaultContact));
+        //Chuck Brown isn't in contacts so we don't get it, but it prints as a convenience using the getOrDefault (in this case it prints the default). getOrDefault does NOT add it to the map.
+
+        System.out.println("-----------------------------");
+        contacts.clear();
+        for (Contact contact : fullList) {
+            Contact duplicate = contacts.put(contact.getName(), contact);
+            if (duplicate != null) {
+//                System.out.println("duplicate = " + duplicate);
+//                System.out.println("current = " + contact);
+                contacts.put(contact.getName(), contact.mergeContactData(duplicate));
+            }
+        }
+        contacts.forEach((k, v) -> System.out.println("key=" + k + ", value= " + v));
+
+        System.out.println("-----------------------------");
+        contacts.clear();
+
+        for (Contact contact : fullList) {
+            contacts.putIfAbsent(contact.getName(), contact);
+            //putIfAbsent is a default method on the Map interface. This method won't put an updated value in the map, it just ignores the element if it already finds something in the map for the key. This method returns an element if one is already in the map for the key, but the method doesn't replace it with the current element. It returns null if this is the first time an entry is being added to the map for that key.
+        }
+        contacts.forEach((k, v) -> System.out.println("key=" + k + ", value= " + v));
+
+        System.out.println("-----------------------------");
+        contacts.clear();
+
+        //this loop assigns what comes back from putIfAbsent to a local variable called duplicate. The if statement checks if duplicate isn't null and if it isn't it makes a call to the put method.
+        for (Contact contact : fullList) {
+            Contact duplicate = contacts.putIfAbsent(contact.getName(), contact);
+            if (duplicate != null) {
+                contacts.put(contact.getName(), contact.mergeContactData(duplicate));
+            } //put the merged/current contact with the duplicate variable and this nicely merges the contacts.
+        }
+        contacts.forEach((k, v) -> System.out.println("key=" + k + ", value= " + v));
+
+        //merge method takes a key and a value and has a third parameter that is a BiFunction interface(meaning it's a target for a lambda expression that takes two parameters and returns a result.
+        System.out.println("-----------------------------");
+        contacts.clear(); //clear contacts map
+        fullList.forEach(contact -> contacts.merge(contact.getName(), contact,
+                Contact::mergeContactData
+                )); //loop through full list using for Each method taking a lambda expression. Merge on the contacts map, passing the current contacts name then the current contact. Follow with another lambda expression that is a function interface. Print the elements in the contacts map.
+        contacts.forEach((k, v) -> System.out.println("key=" + k + ", value= " + v));
+
+    }
+}
