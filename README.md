@@ -1,10 +1,17 @@
 Section 5: Expressions, Statements, & More
+
 Section 6: Switch Statements, Loops
+
 Section 7: OOP Part 1 - Inheritance
+
 Section 8: OOP Part 2 - Polymorphism 
+
 Section 9: Arrays
+
 Section 10: List, ArrayList, LinkedList, Iterator, Autoboxing
+
 Section 11: Abstraction in Java
+
 Section 12: Generics
 Section 13: Nested Classes and Types
 Section 14: Lambda Expressions, Functional Interfaces, and Method References
